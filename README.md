@@ -243,13 +243,17 @@ To simplify the developer expirence, you should add a `develop` feature with all
 
 #### Adding End User Scripts
 
-Scripts for end users can be added with the `entry_points` command.  In particular the `console_scripts` option is of note.  Please review the upstream documentation on this.
+Scripts for end users can be added with the `entry_points` command.  In particular the `console_scripts` option for native python code is of note.  Please review the upstream documentation on these.  When possible, `console_scripts` is preferable due to its ability to hook into native testing.
 
 ```python
     entry_points={
         "console_scripts": [
             "myscript=MYPACKAGENAME.utils.myscript:main",
             "myotherscript=MYPACKAGENAME.utils.myotherscript:main",
+        ],
+        "scripts": [
+            "bin/myshellscript.sh",
+            "bin/myotherscript.sh",
         ],
     },
 ```
