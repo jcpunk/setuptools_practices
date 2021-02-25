@@ -4,6 +4,8 @@ This document is focused on sustainable practices for python packaging as of Jan
 
 The majority of systems deployed at FNAL use python-3.6 as their default python 3 implementation.  As a result, elements of PEP-518, PEP-621, and PEP-631 are supported.  However, the complete integration of `pyproject.toml` is not complete on python-3.6.
 
+Additionally, you should consider other helpful tools (such as pre-commit) to automate some common workflows.
+
 ## Metadata
 
 The python package metadata can be defined in a few ways.  We will focus on the `setup.py` options here for maximum accessibility and compatibility.
