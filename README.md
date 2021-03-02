@@ -91,6 +91,9 @@ This is an example of a minimalist layout for a python module called MYPACKAGENA
 ├── doc/
 ├── LICENSE.txt
 ├── packaging/
+│   ├── containers/
+│   │   ├── Dockerfile.application
+│   │   └── Dockerfile.ci
 │   ├── dpkg/
 │   ├── README.md
 │   ├── rpm/
@@ -135,6 +138,17 @@ Your project documentation should be placed here.  Python has generally standard
 Specific elements related to package distribution (not wheels) should be placed here.
 
 Elements such as `systemd` services (which cannot be included in wheels) and packaging scriptlets (to make user accounts) can be centralized here.
+
+#### packaging/containers
+
+We've broken this out into three layers:
+
+1. `Dockerfile.application`
+2. `Dockerfile.ci`
+
+The image produced by `Dockerfile` should be suitable for use on your container platform.  If the application is going to run in production, this is the container file that should be used.  This container should contain the application code and be in a known registry.
+
+The `Dockerfile.ci` image should be a container developers can pull down to bind mount their source code from their home directory.  This container should be well instrumented so various CI tasks can be run (unit tests, build packages, etc).
 
 ### src/MYPACKAGENAME
 
